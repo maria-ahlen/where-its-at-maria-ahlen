@@ -3,19 +3,22 @@ const orderButton = document.querySelector('#orderButton');
 
 function showAllEvents(allEvents) {
     let eventSection = document.querySelector('#eventSection');
+    eventSection.innerHTML = '';
+
     for (let event of allEvents) {
         let eventElem = document.createElement('div');
         eventElem.classList.add('event');
         
         eventElem.innerHTML +=
-        '<h4>' + event.date + '</h4>' +
-        '<h2>' + event.eventName + '</h2>' + 
-        '<h5>' + event.city + '</h5>' + 
-        '<h4>' + event.from + '-' + event.to + '</h4>' + 
-        '<h3>' + event.price + '</h3>';
+            '<h5>' + event.date + '</h5>' +
+            '<h5>' + event.eventName + '</h5>' + 
+            '<h5>' + event.city + '</h5>' + 
+            '<h5>' + event.from + '-' + event.to + '</h5>' + 
+            '<h5>' + event.price + '</h5>';
 
-        eventSection.append(eventElem);
+        eventSection.append(eventElem);        
     }
+    showModal(eventSection);
 }
 
 async function getAllEvents() {
@@ -35,34 +38,36 @@ async function getAllEvents() {
 }
 
 
-function createID() {
-    let chars = '1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
-    let randomSerial = '';
-
-    for (let i = 0; i < 6; i++) {
-        let randomNumber = Math.floor(Math.random() * chars.length);
-        randomSerial += chars.substring(randomNumber, randomNumber +1);
-    }   
-}
-
-
 
 function showTicket(tickets) {
-    let showTicket = document.querySelector('.showTicket');
+    let ticketShow = document.querySelector('.showTicket');
+    ticketShow.innerHTML = '';
 
     for (let ticket of tickets) {
         let ticketElem = document.createElement('div');
-        ticketElem.classList.add('ticketItem');
+        ticketElem.setAttribute('ticketItem');
 
         ticketElem.innerHTML +=
-        '<h3>' + ticket.eventName + '</h3>' + 
-        '<h3>' + ticket.city + '</h3>' + 
-        '<h3>' + ticket.date + '</h3>' + 
-        '<h3>' + ticket.price + '</h3>' +
-        '<h3 class="hide">' + ticket.id + '</h3>';
+            '<h3>' + ticket.eventName + '</h3>' + 
+            '<h3>' + ticket.city + '</h3>' + 
+            '<h3>' + ticket.date + '</h3>' + 
+            '<h3>' + ticket.price + '</h3>' +
+            '<h3>' + ticket.id + '</h3>';
 
-        showTicket.append(ticketElem);
+        ticketShow.append(ticketElem);
     }
+}
+
+
+function showModal(ticket) {
+    document.querySelector('.event').addEventListener('click', () => {
+        //document.querySelector('.eventlist').classList.toggle('hide');
+        //document.querySelector('#modal').classList.toggle('hide');
+        //document.querySelector('#ticketID').classList.toggle('hide');
+        console.log('hej');
+    });
+
+    showTicket(ticket);
 }
 
 
@@ -95,18 +100,16 @@ async function addTicktetToVerify(ticket) {
         });
 
         const data = response.json();
-        return await data;
+        showTicket(data.tickets);
+
     } catch(error) {
         console.log('Error in fetch on addTicketToVerify() :', error);
     }
 }
 
 
-
-
 orderButton.addEventListener('click', () => {
 
 });
 
-createID();
 getAllEvents();

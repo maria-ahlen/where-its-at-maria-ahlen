@@ -31,18 +31,20 @@ async function createEvent(event) {
 
 
 function showAllEvents(allEvents) {
-    let eventSection = document.querySelector('#events');
+    let eventList = document.querySelector('#eventList');
+    eventList.innerHTML = '';
+
     for (let event of allEvents) {
         let eventElem = document.createElement('div');
         eventElem.classList.add('eventitem');
         
         eventElem.innerHTML +=
-        '<h2>' + event.eventName + '</h2>' + 
-        '<h5>' + event.city + '</h5>' + 
-        '<h4>' + event.tickets + '</h4>' + 
-        '<h3>' + event.price + '</h3>';
+            '<h5>' + event.eventName + '</h5>' + 
+            '<h5>' + event.city + '</h5>' + 
+            '<h5>' + event.tickets + '</h5>' + 
+            '<h5>' + event.price + '</h5>';
 
-        eventSection.append(eventElem);
+            eventList.append(eventElem);
     }
 }
 

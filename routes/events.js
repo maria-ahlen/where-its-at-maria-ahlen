@@ -40,9 +40,10 @@ router.post('/addticket', async (req, res) => {
     const body = req.body;
 
     const ticket = await addTicket(body);
+    const id = await createID();
 
     let resObj = {
-        id: ticket.id,
+        id: id.id,
         eventName: ticket.eventName,
         city: ticket.city,
         date: ticket.date,
@@ -50,7 +51,18 @@ router.post('/addticket', async (req, res) => {
     }
 
     res.send(JSON.stringify(resObj));
+    console.log(resObj);
 });
 
+
+function createID() {
+    let chars = '1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+    let randomSerial = '';
+
+    for (let i = 0; i < 6; i++) {
+        let randomNumber = Math.floor(Math.random() * chars.length);
+        randomSerial += chars.substring(randomNumber, randomNumber +1);
+    }   
+}
 
 module.exports = router;

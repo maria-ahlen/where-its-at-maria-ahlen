@@ -1,4 +1,49 @@
 {
   "events": [
+    {
+      "eventName": "InFlames",
+      "city": "Göteborg",
+      "date": "14 Oktober",
+      "from": "18:00",
+      "to": "23:00",
+      "tickets": "400",
+      "price": "549"
+    },
+    {
+      "eventName": "Metallica",
+      "city": "Stockholm",
+      "date": "18 April",
+      "from": "17:00",
+      "to": "23:59",
+      "tickets": "500",
+      "price": "700"
+    },
+    {
+      "eventName": "Disturbed",
+      "city": "Göteborg",
+      "date": "13 November",
+      "from": "17:00",
+      "to": "23:00",
+      "tickets": "400",
+      "price": "600"
+    },
+    {
+      "eventName": "Five Finger Death Punch",
+      "city": "Oslo",
+      "date": "6 Augusti",
+      "from": "19:00",
+      "to": "23:00",
+      "tickets": "350",
+      "price": "600"
+    },
+    {
+      "eventName": "Coldrain",
+      "city": "London",
+      "date": "16 Februari",
+      "from": "19:00",
+      "to": "23:00",
+      "tickets": "400",
+      "price": "500"
+    }
   ]
 }
