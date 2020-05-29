@@ -1,0 +1,51 @@
+const jwt = require('jsonwebtoken');
+const { Router } = require('express');
+const router = new Router();
+
+const { getUserName } = require('../models/databases');
+const { matchPassword } = require('../models/hashpassword');
+
+
+router.post('/login', async (req, res) => {
+    const body = req.body;
+
+    const resObj = {
+        success: false
+    }
+    
+    const user = await getUserName(body);
+    const match = await matchPassword(body.password, user.password);
+
+    if (user && match) {
+        const token = jwt.sign({ uuid: user.uuid }, 'hf7hTbdk', {
+            expiresIn: 600,
+        });
+
+        resObj.success = true;
+        resObj.token = token;
+        resObj.role = user.role;
+    } 
+
+    res.send(JSON.stringify(resObj));
+});
+
+
+router.get('/loggedin', async (req, res) => {
+    const token = req.header('Authorization').replace('Bearer', '');
+
+    let resObj = {
+        loggedIn: false
+    }
+
+    if (token !== 'null') {
+        const user = jwt.verify(token, 'hf7hTbdk');
+
+        if (user) {
+            resObj.loggedIn = true;
+            resObj.user = user;
+        }
+    }
+    res.send(JSON.stringify(resObj));
+});
+
+module.exports = router;

@@ -1,0 +1,16 @@
+{
+  "users": [
+    {
+      "uuid": "105c9cc6-df61-45a1-b711-dbc6f63e4837",
+      "username": "maria",
+      "password": "$2b$10$8uSoqXJJAFDZQsqnDk5HOu90aJFIpW8Dd7bIxuiQc3jn3GHnYnkom",
+      "role": "admin"
+    },
+    {
+      "uuid": "483ec326-3289-4fb6-813e-96c2d24541b5",
+      "username": "emma",
+      "password": "$2b$10$uG2QFmsHJ0AzzI5lKXk.jODZEMpIXvBFAHWkSistUoNlWereMDLKm",
+      "role": "staff"
+    }
+  ]
+}
