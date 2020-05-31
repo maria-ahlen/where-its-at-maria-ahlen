@@ -1,6 +1,9 @@
 const low = require('lowdb');
 const FileSync = require('lowdb/adapters/FileSync');
 
+const { v4: uuidv4 } = require('uuid');
+const { createID } = require('./generateid');
+
 const adapter1 = new FileSync('users.json');
 const users = low(adapter1);
 
@@ -17,8 +20,9 @@ module.exports = {
         return await users.get('users').find({ username: user.username }).value();
     },
 
-    async getTicket(ticket) {
-        return await events.get('tickets').find({ id: ticket.id }).value();
+
+    async showEvent(uuid) {
+        return await events.get('tickets').find({ eventid: uuid }).value();
     },
 
     async getEvents() {
@@ -26,10 +30,18 @@ module.exports = {
     },
 
     async addEvents({eventName, city, date, from, to, tickets, price}) {
-        return await events.get('events').push({ eventName: eventName, city: city, date: date, from: from, to: to, tickets: tickets, price: price }).write();
+        const uuid = uuidv4();
+        return await events.get('events').push({ eventid: uuid, eventName: eventName, city: city, date: date, from: from, to: to, tickets: tickets, price: price }).write();
     },
 
-    async addTicket(id, eventName, city, date, price) {
+
+
+    async getTicket(ticket) {
+        return await events.get('tickets').find({ id: ticket.id }).value();
+    },
+
+    async addTicket(eventName, city, date, price) {
+        const id = createID();
         return await events.get('tickets').push({ id: id, eventName: eventName, city: city, date: date, price: price }).write();
     },
 

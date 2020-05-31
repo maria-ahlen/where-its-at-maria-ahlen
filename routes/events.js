@@ -1,7 +1,7 @@
 const { Router } = require('express');
 const router = new Router();
 
-const { getEvents, addTicket, getTicket } = require('../models/databases');
+const { showEvent, getEvents, addTicket, getTicket } = require('../models/databases');
 
 
 router.get('/getall', async (req, res) => {
@@ -25,11 +25,10 @@ router.get('/getticket', async (req, res) => {
         success: false
     }
 
-    const event = await getTicket();
+    const tickets = await getTicket();
 
-    if (events) {
+    if (tickets) {
         resObj.success = true;
-        resObj.id = event;
     }
 
     res.send(JSON.stringify(resObj));
@@ -40,10 +39,9 @@ router.post('/addticket', async (req, res) => {
     const body = req.body;
 
     const ticket = await addTicket(body);
-    const id = await createID();
 
     let resObj = {
-        id: id.id,
+        id: ticket.id,
         eventName: ticket.eventName,
         city: ticket.city,
         date: ticket.date,
@@ -51,18 +49,22 @@ router.post('/addticket', async (req, res) => {
     }
 
     res.send(JSON.stringify(resObj));
-    console.log(resObj);
 });
 
 
-function createID() {
-    let chars = '1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
-    let randomSerial = '';
+router.get('/showevent/:id', async (req, res) => {
+    let resObj = {
+        success: false
+    }
 
-    for (let i = 0; i < 6; i++) {
-        let randomNumber = Math.floor(Math.random() * chars.length);
-        randomSerial += chars.substring(randomNumber, randomNumber +1);
-    }   
-}
+    const ticket = await showEvent();
+
+    if (ticket) {
+        resObj.success = true;
+        resObj.eventid = ticket.uuid;
+    }
+
+    res.send(JSON.stringify(resObj));
+});
 
 module.exports = router;

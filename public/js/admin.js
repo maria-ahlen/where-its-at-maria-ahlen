@@ -29,7 +29,6 @@ async function createEvent(event) {
 }
 
 
-
 function showAllEvents(allEvents) {
     let eventList = document.querySelector('#eventList');
     eventList.innerHTML = '';
@@ -48,6 +47,7 @@ function showAllEvents(allEvents) {
     }
 }
 
+
 async function getAllEvents() {
     const url = 'http://localhost:8000/admin/showevents';
 
@@ -64,7 +64,6 @@ async function getAllEvents() {
 }
 
 
-
 addEventButton.addEventListener('click', () => {
     let eventObj = {
         eventName: inputName.value,
@@ -75,6 +74,7 @@ addEventButton.addEventListener('click', () => {
         tickets: inputTickets.value,
         price: inputPrice.value
     }
+
     createEvent(eventObj);
     getAllEvents();
 });

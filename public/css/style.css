@@ -181,7 +181,7 @@
 }
 
 
-.showTicket {
+#ticketItem {
     width: 311px;
     box-shadow: 0px 0px 32px rgba(0, 0, 0, 0.34);
     border-radius: 3px;
@@ -224,18 +224,10 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 
-.eventlist-Header {
-    width: 375px;
-    height: 100px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.eventlist h1 {
+#eventlist-Header {
     font-family: Sansita;
     font-style: italic;
     font-weight: normal;
@@ -243,15 +235,18 @@
     line-height: 37px;
     display: flex;
     align-items: center;
+    justify-content: center;
     text-align: center;
     color: #F56B9A;
 }
+
 
 .eventlist {
     width: 375px;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
+    color: #FFFFFF;
 }
 
 
@@ -259,7 +254,7 @@
     color: #FFFFFF;
 }
 
-#modal {
+#eventSection {
     width: 375px;
     display: flex;
     flex-direction: column;
@@ -267,7 +262,7 @@
     align-items: center;
 }
 
-#modal p {
+#eventSection  p {
     width: 200px;
     font-family: Fira Sans;
     font-style: italic;
@@ -277,6 +272,32 @@
     text-align: center;
     color: rgba(255, 255, 255, 0.8);
 }
+
+/*--------------------BUY------------------------------*/
+
+.buy-wrapper{
+    background-color: #231F42;
+    width: 375px;
+    height: 667px;
+}
+
+#orderItem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#orderItem p {
+    font-family: Fira Sans;
+    font-style: italic;
+    font-weight: normal;
+    font-size: 19px;
+    line-height: 23px;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.8);
+}
+
 
 
 /*--------------------INPUT FIELDS------------------------------*/
