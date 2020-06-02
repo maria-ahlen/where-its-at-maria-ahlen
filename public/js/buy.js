@@ -1,20 +1,17 @@
 //Show ticket and the ticketnumber
-function showTicket(tickets) {
+function showTicket(ticket) {
     let ticketShow = document.querySelector('#showTicket');
-    ticketShow.innerHTML = '';
+    let ticketElem = document.createElement('div');
+    ticketElem.classList.add('ticketItem');
 
-    for (ticket of tickets) {
-        let ticketElem = document.createElement('div');
-        ticketElem.setAttribute('ticketItem');
+    ticketElem.innerHTML +=
+        '<h3 class="eventitem">' + ticket.eventName + '</h3>' + 
+        '<h3 class="eventitem">' + ticket.city + '</h3>' + 
+        '<h3 class="eventitem">' + ticket.date + '</h3>' + 
+        '<h3 class="eventitem">' + ticket.price + ' sek</h3>';
 
-        ticketElem.innerHTML +=
-            '<h3 class="eventitem">' + ticket.eventName + '</h3>' + 
-            '<h3 class="eventitem">' + ticket.city + '</h3>' + 
-            '<h3 class="eventitem">' + ticket.date + '</h3>' + 
-            '<h3 class="eventitem">' + ticket.price + '</h3>';
-
-        ticketShow.append(ticketElem);
-    }
+    ticketShow.append(ticketElem);
+    
     addToBy();
 }
 
@@ -42,9 +39,7 @@ async function showEvent() {
         });
 
         const data = await response.json();
-        
-        console.log('Data in showEvent(): ', data);
-        await showTicket(data);
+        showTicket(data);
 
     } catch(error) {
         console.log('Error in fetch on showEvent() :', error);
@@ -53,20 +48,31 @@ async function showEvent() {
 
 
 //Add single ticket to database
-async function addTicktet() {
+async function addTicktet(eventname, city, date, from, to, id) {
     const url = 'http://localhost:8000/events/addticket';
+    
+    let obj = {
+        eventName: eventname,
+        city: city,
+        date: date, 
+        from: from,
+        to: to,
+        id: id
+    }
+
+    console.log('obj:', obj);
 
     try {
         const response = await fetch(url, {
             method: 'POST',
-            body: JSON.stringify(ticket),
+            body: JSON.stringify(obj),
             headers: {
                 'Content-Type': 'application/json'
             }
         });
 
         const data = response.json();
-        return await data;
+        console.log('data', data);
 
     } catch(error) {
         console.log('Error in fetch on addTicketToVerify() :', error);
@@ -76,9 +82,10 @@ async function addTicktet() {
 //Order the ticket to add ticketnumber
 function addToBy() {
     const orderButton = document.querySelector('#orderButton');
-
+    
     orderButton.addEventListener('click', () => {
-        addTicktet();
+        addTicktet(orderButton.value);
+        console.log(orderButton.value);
         //location.href = 'http://localhost:8000/ticket.html';
     });
 }

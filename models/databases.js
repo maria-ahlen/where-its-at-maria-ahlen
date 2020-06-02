@@ -43,9 +43,9 @@ module.exports = {
         return await events.get('tickets').find({ id: ticket.id }).value();
     },
 
-    async addTicket(eventName, city, date, price) {
+    async addTicket(eventName, city, date, from, to) {
         const id = createID();
-        return await events.get('tickets').push({ id: id, eventName: eventName, city: city, date: date, price: price }).write();
+        return await events.get('tickets').push({ eventName: eventName, city: city, date: date, from: from, to: to, id: id }).write();
     },
 
     async removeTicket(id) {

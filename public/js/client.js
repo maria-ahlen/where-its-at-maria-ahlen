@@ -8,11 +8,11 @@ function showAllEvents(allEvents) {
         eventElem.classList.add('eventlist');
         
         eventElem.innerHTML +=
-            '<h5 class="eventitem" value=' + event.eventid + '>' + event.date + '</h5>' +
-            '<h5 class="eventitem" value=' + event.eventid + '>' + event.eventName + '</h5>' + 
-            '<h5 class="eventitem" value=' + event.eventid + '>' + event.city + '</h5>' + 
-            '<h5 class="eventitem" value=' + event.eventid + '>' + event.from + '-' + event.to + '</h5>' + 
-            '<h5 class="eventitem" value=' + event.eventid + '>' + event.price + 'sek' + '</h5>';
+            '<h5 class="eventitem" name="eventitem" value=' + event.eventid + '>' + event.date + '</h5>' +
+            '<h5 class="eventitem" name="eventitem" value=' + event.eventid + '>' + event.eventName + '</h5>' + 
+            '<h5 class="eventitem" name="eventitem" value=' + event.eventid + '>' + event.city + '</h5>' + 
+            '<h5 class="eventitem" name="eventitem" value=' + event.eventid + '>' + event.from + '-' + event.to + '</h5>' + 
+            '<h5 class="eventitem" name="eventitem" value=' + event.eventid + '>' + event.price + 'sek' + '</h5>';
 
         eventSection.append(eventElem);
     }

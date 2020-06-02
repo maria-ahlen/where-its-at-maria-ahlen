@@ -54,16 +54,15 @@ router.post('/showevent', async (req, res) => {
 
 //add single ticket and generate a ticketnumber to database
 router.post('/addticket', async (req, res) => {
-    const body = req.body;
-
-    const ticket = await addTicket(body);
+    const addticket = await addTicket();
 
     let resObj = {
-        id: ticket.id,
-        eventName: ticket.eventName,
-        city: ticket.city,
-        date: ticket.date,
-        price: ticket.price
+        eventName: addticket.eventName,
+        city: addticket.city,
+        date: addticket.date,
+        from: addticket.from,
+        to: addticket.to,
+        id: addticket.id
     }
 
     res.send(JSON.stringify(resObj));
