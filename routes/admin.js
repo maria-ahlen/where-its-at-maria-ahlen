@@ -1,17 +1,17 @@
 const { Router } = require('express');
 const router = new Router();
 
-
 const { admin } = require('../middleware/auth');
 const { getEvents, addEvents } = require('../models/databases');
 
 
-
+//Get admin from database
 router.get('/admin', admin, (req, res) => {
     res.send(JSON.stringify({ success: true, message: 'Admin account!'}));
 });
 
 
+//Show all events in database
 router.get('/showevents', async (req, res) => {
     let resObj = {
         success: false
@@ -28,6 +28,7 @@ router.get('/showevents', async (req, res) => {
 });
 
 
+//Add events to the database
 router.post('/addevent', async (req, res) => {
     const body = req.body;
 

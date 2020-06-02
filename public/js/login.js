@@ -10,7 +10,7 @@ function getToken() {
     return sessionStorage.getItem('auth');
 }
 
-
+//Check the credentials to login
 async function login(username, password) {
     const url = 'http://localhost:8000/auth/login';
 
@@ -31,7 +31,7 @@ async function login(username, password) {
     return await data;
 }
 
-
+//When the user is logged in
 async function loggedin() {
     const token = getToken();
     const url = 'http://localhost:8000/auth/loggedin';
@@ -47,6 +47,7 @@ async function loggedin() {
 }
 
 
+//Send the user to correct page when logged in, otherwise send error
 loginButton.addEventListener('click', async () => {
     const username = inputUser.value;
     const password = inputPass.value;    

@@ -4,16 +4,43 @@
       "eventid": "873e22b8-ea1a-4426-8efd-759fe779de65",
       "eventName": "In Flames",
       "city": "Göteborg",
-      "date": "13 November",
+      "date": "13 Nov",
       "from": "18:00",
       "to": "22:00",
       "tickets": "350",
       "price": "450"
+    },
+    {
+      "eventid": "3db8e89b-44ec-41cf-b2b3-f38e056cd628",
+      "eventName": "Coldrain",
+      "city": "Stockholm",
+      "date": "20 Aug",
+      "from": "17:00",
+      "to": "23:00",
+      "tickets": "400",
+      "price": "500"
+    },
+    {
+      "eventid": "5a66e44c-0001-4c32-8927-6e072e3d8bf3",
+      "eventName": "Disturbed",
+      "city": "Malmö",
+      "date": "16 Apr",
+      "from": "18:00",
+      "to": "23:59",
+      "tickets": "500",
+      "price": "600"
+    },
+    {
+      "eventid": "eb89c8ca-1909-4049-8009-336886eb5e28",
+      "eventName": "Arch Enemy",
+      "city": "Oslo",
+      "date": "3 Jun",
+      "from": "19:00",
+      "to": "01:00",
+      "tickets": "560",
+      "price": "649"
     }
   ],
   "tickets": [
-    {
-      "eventName": {}
-    }
   ]
 }

@@ -5,7 +5,7 @@ const router = new Router();
 const { getUserName } = require('../models/databases');
 const { matchPassword } = require('../models/hashpassword');
 
-
+//Check if the user is valid to login
 router.post('/login', async (req, res) => {
     const body = req.body;
 
@@ -29,7 +29,7 @@ router.post('/login', async (req, res) => {
     res.send(JSON.stringify(resObj));
 });
 
-
+//Save a token when the user logges
 router.get('/loggedin', async (req, res) => {
     const token = req.header('Authorization').replace('Bearer', '');
 

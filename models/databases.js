@@ -12,6 +12,8 @@ const events = low(adapter2);
 
 
 module.exports = {
+
+    //Users
     async getUserId(user) {
         return await users.get('users').find({ uuid: user.uuid }).value();
     },
@@ -21,8 +23,9 @@ module.exports = {
     },
 
 
+    //Events
     async showEvent(uuid) {
-        return await events.get('tickets').find({ eventid: uuid }).value();
+        return await events.get('events').find({ eventid: uuid.eventid }).value();
     },
 
     async getEvents() {
@@ -35,7 +38,7 @@ module.exports = {
     },
 
 
-
+    //Tickets
     async getTicket(ticket) {
         return await events.get('tickets').find({ id: ticket.id }).value();
     },

@@ -1,3 +1,5 @@
+//Generate a uniqe ID to the ticketnumber
+
 module.exports = {
     createID() {
         let chars = '1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';

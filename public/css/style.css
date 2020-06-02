@@ -281,6 +281,14 @@
     height: 667px;
 }
 
+#showTicket {
+    width: 375px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 #orderItem {
     display: flex;
     flex-direction: column;

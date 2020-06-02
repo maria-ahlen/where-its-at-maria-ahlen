@@ -3,7 +3,7 @@ const router = new Router();
 
 const { showEvent, getEvents, addTicket, getTicket } = require('../models/databases');
 
-
+//Get all events from database
 router.get('/getall', async (req, res) => {
     let resObj = {
         success: false
@@ -20,6 +20,7 @@ router.get('/getall', async (req, res) => {
 });
 
 
+//Get chosen ticket from database
 router.get('/getticket', async (req, res) => {
     let resObj = {
         success: false
@@ -35,6 +36,23 @@ router.get('/getticket', async (req, res) => {
 });
 
 
+ 
+//Get single event from database
+router.post('/showevent', async (req, res) => {
+    const body = req.body;
+    let ticket = await showEvent(body);
+
+    let resObj = {
+        eventName: ticket.eventName,
+        city: ticket.city,
+        date: ticket.date,
+        price: ticket.price
+    }    
+    res.send(JSON.stringify(resObj));
+});
+
+
+//add single ticket and generate a ticketnumber to database
 router.post('/addticket', async (req, res) => {
     const body = req.body;
 
@@ -46,22 +64,6 @@ router.post('/addticket', async (req, res) => {
         city: ticket.city,
         date: ticket.date,
         price: ticket.price
-    }
-
-    res.send(JSON.stringify(resObj));
-});
-
-
-router.get('/showevent/:id', async (req, res) => {
-    let resObj = {
-        success: false
-    }
-
-    const ticket = await showEvent();
-
-    if (ticket) {
-        resObj.success = true;
-        resObj.eventid = ticket.uuid;
     }
 
     res.send(JSON.stringify(resObj));

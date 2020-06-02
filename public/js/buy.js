@@ -1,41 +1,59 @@
-const orderButton = document.querySelector('#orderButton');
-
+//Show ticket and the ticketnumber
 function showTicket(tickets) {
-    let ticketShow = document.querySelector('.showTicket');
+    let ticketShow = document.querySelector('#showTicket');
     ticketShow.innerHTML = '';
 
-    for (let ticket of tickets) {
+    for (ticket of tickets) {
         let ticketElem = document.createElement('div');
         ticketElem.setAttribute('ticketItem');
 
         ticketElem.innerHTML +=
-            '<h3>' + ticket.eventName + '</h3>' + 
-            '<h3>' + ticket.city + '</h3>' + 
-            '<h3>' + ticket.date + '</h3>' + 
-            '<h3>' + ticket.price + '</h3>' //+
-            //'<h3>' + ticket.id + '</h3>';
+            '<h3 class="eventitem">' + ticket.eventName + '</h3>' + 
+            '<h3 class="eventitem">' + ticket.city + '</h3>' + 
+            '<h3 class="eventitem">' + ticket.date + '</h3>' + 
+            '<h3 class="eventitem">' + ticket.price + '</h3>';
 
         ticketShow.append(ticketElem);
     }
+    addToBy();
+}
+
+function getEvent() {
+   return localStorage.getItem('event');
 }
 
 
-async function getTicket() {
-    const url = 'http://localhost:8000/events/getticket';
-
+//Fetch the ticket
+async function showEvent() {
+    const ticket = await getEvent();
+    const url = 'http://localhost:8000/events/showevent';
+    
+    let obj = {
+        eventid: ticket
+    }
+    
     try {
         const response = await fetch(url, {
-            method: 'GET'
+            method: 'POST',
+            body: JSON.stringify(obj),
+            headers : {
+                'Content-Type': 'application/json'
+            }
         });
-        const data = await response.json();
-        showTicket(data);
 
-    } catch (error) {
-        console.log('Error in fetch on getTicket() : ', error);
+        const data = await response.json();
+        
+        console.log('Data in showEvent(): ', data);
+        await showTicket(data);
+
+    } catch(error) {
+        console.log('Error in fetch on showEvent() :', error);
     }
 }
 
-async function addTicktet(ticket) {
+
+//Add single ticket to database
+async function addTicktet() {
     const url = 'http://localhost:8000/events/addticket';
 
     try {
@@ -48,15 +66,22 @@ async function addTicktet(ticket) {
         });
 
         const data = response.json();
-        showTicket(data.tickets);
+        return await data;
 
     } catch(error) {
         console.log('Error in fetch on addTicketToVerify() :', error);
     }
 }
 
+//Order the ticket to add ticketnumber
+function addToBy() {
+    const orderButton = document.querySelector('#orderButton');
 
-orderButton.addEventListener('click', () => {
-    addTicktet();
-    location.href = 'http://localhost:8000/ticket.html';
-});
+    orderButton.addEventListener('click', () => {
+        addTicktet();
+        //location.href = 'http://localhost:8000/ticket.html';
+    });
+}
+
+
+showEvent();

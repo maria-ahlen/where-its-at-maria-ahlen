@@ -3,6 +3,7 @@ const router = new Router();
 
 const { staff } = require('../middleware/auth');
 
+//Get staff from database
 router.get('/staff', staff, (req, res) => {
     let resObj = {
         user: req.user.username,
@@ -13,6 +14,8 @@ router.get('/staff', staff, (req, res) => {
     res.send(JSON.stringify(resObj));
 });
 
+
+//Verify the ticket
 router.get('/verify', async (req, res) => {
 
 });

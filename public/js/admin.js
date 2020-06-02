@@ -8,7 +8,7 @@ const inputPrice = document.querySelector('#inputPrice');
 const addEventButton = document.querySelector('#addEventButton');
 
 
-
+//Create an event to the database
 async function createEvent(event) {
     try {
         const url = 'http://localhost:8000/admin/addevent';
@@ -28,7 +28,7 @@ async function createEvent(event) {
     }
 }
 
-
+//Show all the events
 function showAllEvents(allEvents) {
     let eventList = document.querySelector('#eventList');
     eventList.innerHTML = '';
@@ -47,7 +47,7 @@ function showAllEvents(allEvents) {
     }
 }
 
-
+//Get all the events from database
 async function getAllEvents() {
     const url = 'http://localhost:8000/admin/showevents';
 
@@ -63,7 +63,7 @@ async function getAllEvents() {
     }
 }
 
-
+//When button pushed, the filled in fields adds to the database
 addEventButton.addEventListener('click', () => {
     let eventObj = {
         eventName: inputName.value,
