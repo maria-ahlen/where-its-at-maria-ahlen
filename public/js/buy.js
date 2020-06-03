@@ -6,13 +6,13 @@ function showTicket(ticket) {
 
     ticketElem.innerHTML +=
         '<h3 class="eventitem">' + ticket.eventName + '</h3>' + 
-        '<h3 class="eventitem">' + ticket.city + '</h3>' + 
-        '<h3 class="eventitem">' + ticket.date + '</h3>' + 
+        '<h3 class="eventitem">' + ticket.date + ' kl ' + ticket.from + '-' + ticket.to + '</h3>' +  
+        '<h3 class="eventitem">' + '@ ' + ticket.city + '</h3>' + 
         '<h3 class="eventitem">' + ticket.price + ' sek</h3>';
 
     ticketShow.append(ticketElem);
     
-    addToBy();
+    addToBy(ticket);
 }
 
 function getEvent() {
@@ -48,11 +48,12 @@ async function showEvent() {
 
 
 //Add single ticket to database
-async function addTicktet(eventname, city, date, from, to, id) {
+async function addTicktet(eventid, eventName, city, date, from, to, id) {
     const url = 'http://localhost:8000/events/addticket';
     
-    let obj = {
-        eventName: eventname,
+    let body = {
+        eventid: eventid,
+        eventName: eventName,
         city: city,
         date: date, 
         from: from,
@@ -60,33 +61,54 @@ async function addTicktet(eventname, city, date, from, to, id) {
         id: id
     }
 
-    console.log('obj:', obj);
+    console.log('Body from frontend: ', body);
 
     try {
         const response = await fetch(url, {
             method: 'POST',
-            body: JSON.stringify(obj),
+            body: JSON.stringify(body),
             headers: {
                 'Content-Type': 'application/json'
             }
         });
 
         const data = response.json();
-        console.log('data', data);
+        storeId(data.eventid);
+
+        console.log('Data from frontend: ', data.eventid);
 
     } catch(error) {
-        console.log('Error in fetch on addTicketToVerify() :', error);
+        console.log('Error in fetch on addTicket() :', error);
     }
 }
 
+
+//Save the data from the ticket
+function storeId(id) {
+    localStorage.setItem('id', id);
+}
+
+
+
 //Order the ticket to add ticketnumber
-function addToBy() {
+function addToBy(ticket) {
     const orderButton = document.querySelector('#orderButton');
+    let item = ticket;
     
     orderButton.addEventListener('click', () => {
-        addTicktet(orderButton.value);
-        console.log(orderButton.value);
-        //location.href = 'http://localhost:8000/ticket.html';
+        
+        let itemvalue = {
+            eventid: item.eventid,
+            eventName: item.eventName,
+            city: item.city,
+            date: item.date,
+            from: item.from,
+            to: item.to,
+            id: item.id
+        }
+
+        addTicktet(itemvalue);
+        location.href = 'http://localhost:8000/ticket.html';
     });
 }
 

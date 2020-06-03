@@ -2,7 +2,6 @@ const low = require('lowdb');
 const FileSync = require('lowdb/adapters/FileSync');
 
 const { v4: uuidv4 } = require('uuid');
-const { createID } = require('./generateid');
 
 const adapter1 = new FileSync('users.json');
 const users = low(adapter1);
@@ -39,13 +38,13 @@ module.exports = {
 
 
     //Tickets
-    async getTicket(ticket) {
-        return await events.get('tickets').find({ id: ticket.id }).value();
+    async getTicket(id) {
+        console.log('From database.js: ', id);
+        return await events.get('tickets').find({ id: id.id }).value();
     },
 
-    async addTicket(eventName, city, date, from, to) {
-        const id = createID();
-        return await events.get('tickets').push({ eventName: eventName, city: city, date: date, from: from, to: to, id: id }).write();
+    async addTicket(ticket, id) {
+        return await events.get('tickets').push({ ticket: ticket.eventid, eventName: ticket.eventName, city: ticket.city, date: ticket.date, from: ticket.from, to: ticket.to, id: id }).write();
     },
 
     async removeTicket(id) {

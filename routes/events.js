@@ -2,6 +2,7 @@ const { Router } = require('express');
 const router = new Router();
 
 const { showEvent, getEvents, addTicket, getTicket } = require('../models/databases');
+const { createID } = require('../models/generateid');
 
 //Get all events from database
 router.get('/getall', async (req, res) => {
@@ -21,20 +22,19 @@ router.get('/getall', async (req, res) => {
 
 
 //Get chosen ticket from database
-router.get('/getticket', async (req, res) => {
+router.post('/getticket', async (req, res) => {
+    const body = req.body;
+    console.log('From backend, body :' ,body.eventid);
+    
+    let ticket = await getTicket(body);
+    console.log('From backend, ticket :', ticket);
+
     let resObj = {
-        success: false
-    }
-
-    const tickets = await getTicket();
-
-    if (tickets) {
-        resObj.success = true;
+        id: ticket
     }
 
     res.send(JSON.stringify(resObj));
 });
-
 
  
 //Get single event from database
@@ -43,9 +43,12 @@ router.post('/showevent', async (req, res) => {
     let ticket = await showEvent(body);
 
     let resObj = {
+        eventid: ticket.eventid,
         eventName: ticket.eventName,
         city: ticket.city,
         date: ticket.date,
+        from: ticket.from,
+        to: ticket.to,
         price: ticket.price
     }    
     res.send(JSON.stringify(resObj));
@@ -54,9 +57,13 @@ router.post('/showevent', async (req, res) => {
 
 //add single ticket and generate a ticketnumber to database
 router.post('/addticket', async (req, res) => {
-    const addticket = await addTicket();
+    const body = req.body;
+    const generic = createID();
+    const addticket = await addTicket(body.eventid, generic);
+
 
     let resObj = {
+        eventid: addticket.eventid,
         eventName: addticket.eventName,
         city: addticket.city,
         date: addticket.date,
