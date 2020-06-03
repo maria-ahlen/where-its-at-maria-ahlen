@@ -38,13 +38,12 @@ module.exports = {
 
 
     //Tickets
-    async getTicket(id) {
-        console.log('From database.js: ', id);
-        return await events.get('tickets').find({ id: id.id }).value();
+    async getTicket() {
+        return await events.get('tickets').value();
     },
 
     async addTicket(ticket, id) {
-        return await events.get('tickets').push({ ticket: ticket.eventid, eventName: ticket.eventName, city: ticket.city, date: ticket.date, from: ticket.from, to: ticket.to, id: id }).write();
+        return await events.get('tickets').push({ eventid: ticket.eventid, eventName: ticket.eventName, city: ticket.city, date: ticket.date, from: ticket.from, to: ticket.to, id: id }).write();
     },
 
     async removeTicket(id) {

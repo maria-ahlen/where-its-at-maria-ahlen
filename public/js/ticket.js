@@ -37,18 +37,18 @@ function showTicket(ticket) {
 
 //return the data from the ticket
 function idStorage() {
-   return localStorage.getItem('id');
+   return sessionStorage.getItem('id');
 }
-
 
 
 //Get the ticket from the database
 async function getTicket() {
     let info = idStorage();
+    console.log('Info from frontend: ',info)
     const url = 'http://localhost:8000/events/getticket';
 
     let obj = {
-        id: info
+        eventid: info
     }
 
     try {
@@ -61,7 +61,8 @@ async function getTicket() {
         });
 
         const data = await response.json();
-        console.log('From frontend: ',data);
+        
+        console.log('Data from frontend: ', data.id);
         showTicket(data);
 
     } catch (error) {

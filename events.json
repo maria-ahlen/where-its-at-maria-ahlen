@@ -43,13 +43,13 @@
   ],
   "tickets": [
     {
-      "ticket": "873e22b8-ea1a-4426-8efd-759fe779de65",
+      "eventid": "873e22b8-ea1a-4426-8efd-759fe779de65",
       "eventName": "In Flames",
       "city": "Göteborg",
       "date": "13 Nov",
       "from": "18:00",
       "to": "22:00",
-      "id": "11ZLJ0"
+      "id": "OOX84O"
     }
   ]
 }

@@ -19,6 +19,10 @@ function getEvent() {
    return localStorage.getItem('event');
 }
 
+//Save the data from the ticket
+function storeId(id) {
+    sessionStorage.setItem('id', id);
+}
 
 //Fetch the ticket
 async function showEvent() {
@@ -48,20 +52,12 @@ async function showEvent() {
 
 
 //Add single ticket to database
-async function addTicktet(eventid, eventName, city, date, from, to, id) {
+async function addTicktet(eventid) {
     const url = 'http://localhost:8000/events/addticket';
     
     let body = {
         eventid: eventid,
-        eventName: eventName,
-        city: city,
-        date: date, 
-        from: from,
-        to: to,
-        id: id
     }
-
-    console.log('Body from frontend: ', body);
 
     try {
         const response = await fetch(url, {
@@ -72,22 +68,14 @@ async function addTicktet(eventid, eventName, city, date, from, to, id) {
             }
         });
 
-        const data = response.json();
-        storeId(data.eventid);
-
-        console.log('Data from frontend: ', data.eventid);
+        const data = await response.json();
+        console.log('addticket, data:', data);
+        await storeId(data);
 
     } catch(error) {
         console.log('Error in fetch on addTicket() :', error);
     }
 }
-
-
-//Save the data from the ticket
-function storeId(id) {
-    localStorage.setItem('id', id);
-}
-
 
 
 //Order the ticket to add ticketnumber

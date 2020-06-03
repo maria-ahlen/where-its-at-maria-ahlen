@@ -24,12 +24,18 @@ router.get('/getall', async (req, res) => {
 //Get chosen ticket from database
 router.post('/getticket', async (req, res) => {
     const body = req.body;
-    console.log('From backend, body :' ,body.eventid);
+    console.log('From backend, body :', body);
     
     let ticket = await getTicket(body);
     console.log('From backend, ticket :', ticket);
 
     let resObj = {
+        eventid: ticket,
+        eventName: ticket,
+        city: ticket,
+        date: ticket,
+        from: ticket,
+        to: ticket,
         id: ticket
     }
 

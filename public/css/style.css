@@ -198,7 +198,6 @@
 
 #ticketNumber {
     width: 311px;
-    height: 210px;
     background: rgba(0, 0, 0, 0.12);
     border-radius: 0px 0px 3px 3px;
     display: flex;
@@ -371,6 +370,3 @@ button {
     font-size: 14px;
     line-height: 17px;
 }
-
-
-
