@@ -21,7 +21,7 @@ function getEvent() {
 
 //Save the data from the ticket
 function storeId(id) {
-    sessionStorage.setItem('id', id);
+    localStorage.setItem('id', id);
 }
 
 //Fetch the ticket

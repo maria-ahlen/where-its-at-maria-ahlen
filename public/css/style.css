@@ -238,35 +238,174 @@
 
 
 #ticketItem {
-    width: 400px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.ticketInfo {
+    width: 300px;
+    height: 550px;
+    background: #FFFFFF;
     box-shadow: 0px 0px 32px rgba(0, 0, 0, 0.34);
     border-radius: 3px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.ticketInfo div {
     font-family: Fira Sans;
     font-style: normal;
     font-weight: bold;
-    font-size: 10px;
+    font-size: 12px;
     line-height: 12px;
     display: flex;
-    flex-wrap: wrap;
     align-items: center;
     color: rgba(0, 0, 0, 0.4);
 }
 
+#what {
+    margin: 0;
+    width: 300px;
+    height: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    margin: 0;
+}
+
+#what p {
+    margin-left: 1rem;
+}
+
+#what h1 {
+    font-family: Sansita;
+    font-style: italic;
+    font-weight: bold;
+    font-size: 26px;
+    line-height: 30px;
+    display: flex;
+    align-items: center;
+    color: #F56B9A;
+    margin-left: 1rem;
+    margin-top: 0rem;
+}
+
+#where {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: 300px;
+    height: 120px;
+    margin: 0;
+    background: rgba(0, 0, 0, 0.03);
+    border-top: 1px dashed rgba(0, 0, 0, 0.4);
+}
+
+#where p {
+    margin-left: 1rem;
+}
+
+#where h2 {
+    font-family: Fira Sans;
+    font-style: normal;
+    font-weight: bolder;
+    font-size: 18px;
+    line-height: 22px;
+    display: flex;
+    align-items: center;
+    color: rgba(0, 0, 0, 0.7);
+    margin-top: 0rem;
+    margin-left: 1rem;
+}
+
+
+
+#date {
+    color: rgba(0, 0, 0, 0.6);
+    margin-bottom: -6rem;
+}
+
+#when, #from, #to {
+    width: 98px;
+    height: 60px;
+    display: flex;
+    flex-direction: column;
+    border: 1px dashed rgba(0, 0, 0, 0.4);
+    padding: 0;
+}
+
+#when p {
+    margin-top: 0.5rem;
+    margin-left: -3rem;
+}
+
+#from p {
+    margin-top: 0.5rem;
+    margin-left: -3rem;
+}
+
+#to p {
+    margin-top: 0.5rem;
+    margin-left: -3rem;
+}
+
+#when h3 {
+    font-family: Fira Sans;
+    font-style: normal;
+    font-weight: bolder;
+    font-size: 18px;
+    margin-top: 0rem;
+    margin-left: -1.5rem;
+    color: rgba(0, 0, 0, 0.6);
+}
+
+#from h3 {
+    font-family: Fira Sans;
+    font-style: normal;
+    font-weight: bolder;
+    font-size: 18px;
+    margin-top: 0rem;
+    margin-left: -2.3rem;
+    color: rgba(0, 0, 0, 0.6);
+}
+
+#to h3 {
+    font-family: Fira Sans;
+    font-style: normal;
+    font-weight: bolder;
+    font-size: 18px;
+    margin-top: 0rem;
+    margin-left: -1.5rem;
+    color: rgba(0, 0, 0, 0.6);
+}
+
 #ticketNumber {
-    width: 311px;
+    width: 300px;
+    height: 300px;
     background: rgba(0, 0, 0, 0.12);
     border-radius: 0px 0px 3px 3px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
-    font-size: 12px;
+    font-family: Fira Sans;
+    font-style: normal;
+    font-weight: bolder;
+    font-size: 15px;
     line-height: 14px;
+    color: rgba(0, 0, 0, 0.4);
+    padding-bottom: 2rem;
 }
 
 #barcode {
-    width: 155px;
-    height: 60px;
+    width: 170px;
+    height: 70px;
 }
 
 
@@ -331,7 +470,7 @@
 
 .login-input {
     width: 375px;
-    height: 375px;
+    height: 300px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -343,7 +482,9 @@
     font-style: normal;
     font-weight: bold;
     font-size: 15px;
+    margin: 0;
 }
+
 
 #username, #password, #ticketNumberInput {
     background-color: #F39440;
@@ -355,48 +496,111 @@
 /*--------------------ADMIN------------------------------*/
 .admin-wrapper {
     position: relative;
-    width: 100vw;
-    height: 100vh;
+    width: 1300px;
+    height: 1024px;
     background: #231F42;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
+    margin: 0;
 }
 
 #adminEvents {
+    width: 1028px;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-between;
+}
+
+#adminEvents img {
+    display: flex;
+    align-self: flex-start;
+    justify-content: flex-start;
+    margin: 1rem;
 }
 
 #events {
+    width: 600px;
+    height: auto;
     background: rgba(0, 0, 0, 0.3);
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column;
+    justify-content: space-around;
+    margin-top: 13rem;
 }
 
-#events h3{
+#eventInfo{
     font-family: Fira Sans;
     font-style: normal;
     font-weight: bold;
     font-size: 13px;
     line-height: 16px;
     color: #F56B9A;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
 }
 
 .eventitem {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    justify-content: space-around;
+    align-items: flex-start;
+    text-align: center;
     color: #FFFFFF;
+    font-family: Fira Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 16px;
+}
+
+.eventitem h4 {
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 24px;
+    margin: 0.8rem;
+}
+
+.name, .place, .tickets, .price{
+    width: 100px;
+    display: flex;
+    align-self: flex-start;
 }
 
 
+#addEvent {
+    width: 360px;
+    height: 380px;
+    background: rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-left: 1.5rem;
+    margin-top: 13rem;
+    margin-left: 3rem;
+    margin-right: -10rem;
+}
+
+#addEvent h2 {
+    width: 120px;
+    height: 30px;
+    font-family: Fira Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 26px;
+    line-height: 31px;
+    display: flex;
+    align-self: flex-start;
+    color: #F56B9A;
+    margin: 0.3rem;
+}
+
+#addEvent .inputevent {
+    width: 360px;
+}
+
 .addEventInput {
-    width: 400px;
-    height: 40px;
     border: 1px solid rgba(255, 255, 255, 0.7);
-    box-sizing: border-box;
     border-radius: 3px;
     background: #231F42;
     font-size: 12px;
@@ -404,42 +608,19 @@
     color: rgba(255, 255, 255, 0.6);
 }
 
-#addEvent {
-    width: 432px;
-    height: 378px;
-    left: 878px;
-    top: 202px;
-}
-
-#addEvent h2 {
-    width: 120px;
-    height: 30px;
-    left: 894px;
-    top: 218px;
-    font-family: Fira Sans;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 26px;
-    line-height: 31px;
-    display: flex;
-    align-items: center;
-    color: #F56B9A;
-}
-
 #inputName, #inputWhere, #inputDate{
-    width: 310px;
+    width: 320px;
+    height: 40px;
     background: rgba(0, 0, 0, 0.03);
+    margin: 0.3rem;
 }
 
 #inputFrom, #inputTo, #inputTickets, #inputPrice {
-    width: 153px;
+    width: 150px;
+    height: 40px;
     background: rgba(0, 0, 0, 0.03);
+    margin: 0.3rem;
 }
-
-
-
-
-
 
 
 
@@ -490,11 +671,14 @@ button {
 }
 
 #addEventButton {
-    width: 191px;
+    width: 150px;
     height: 40px;
     left: 893px;
     top: 522px;
     background: #F56B9A;
     font-size: 14px;
     line-height: 17px;
+    margin: 0.4rem;
+    display: flex;
+    align-self: flex-start;
 }

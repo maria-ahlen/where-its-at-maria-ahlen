@@ -38,10 +38,10 @@ function showAllEvents(allEvents) {
         eventElem.classList.add('eventitem');
         
         eventElem.innerHTML +=
-            '<h5>' + event.eventName + '</h5>' + 
-            '<h5>' + event.city + '</h5>' + 
-            '<h5>' + event.tickets + '</h5>' + 
-            '<h5>' + event.price + '</h5>';
+            '<h4 class="name">' + event.eventName + '</h4>' + 
+            '<h5 class="place">' + event.city + '</h5>' + 
+            '<h5 class="tickets">' + event.tickets + '</h5>' + 
+            '<h5 class="price">' + event.price + '</h5>';
 
             eventList.append(eventElem);
     }
@@ -74,7 +74,6 @@ addEventButton.addEventListener('click', () => {
         tickets: inputTickets.value,
         price: inputPrice.value
     }
-
     createEvent(eventObj);
     getAllEvents();
 });

@@ -2,15 +2,14 @@ const ticketNumberInput = document.querySelector('#ticketNumberInput');
 const verifyButton = document.querySelector('#verifyButton');
 
 
-
 //return the data from the ticket
 function idStorage() {
-    return sessionStorage.getItem('id');
- }
+    return localStorage.getItem('id');
+}
  
  
- //Get the ticket from the database
- async function getId() {
+//Get the ticket from the database
+async function getId() {
     let id = idStorage();
     const url = `http://localhost:8000/events/getticket/${id}`;
  
@@ -45,10 +44,11 @@ verifyButton.addEventListener('click', async () => {
     let number = ticketNumberInput.value;
     let ticketnumber = await getId();
 
-    if (number === ticketnumber.id) {
+    if (!number === ticketnumber.id) {
+        document.querySelector('#notValid').classList.toggle('hide');
+        
+    } else {
         document.querySelector('#Valid').classList.toggle('hide');
         deleteTicket(ticketnumber.id);
-    } else {
-        document.querySelector('#notValid').classList.toggle('hide');
     }
 });

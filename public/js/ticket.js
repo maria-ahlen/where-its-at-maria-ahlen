@@ -1,19 +1,20 @@
 //Show ticket and the ticketnumber
 function showTicket(ticket) {
     let ticketShow = document.querySelector('#ticketItem');
+    let ticketElem = document.createElement('div');
+    ticketElem.classList.add('ticketInfo');
 
-        let ticketElem = document.createElement('div');
-        ticketElem.innerHTML +=
-            '<div id="what"><p>What</p><h5>' + ticket.eventName + '</h5></div>' +
-            '<div id="where"><p>Where</p><h5>' + ticket.city + '</h5></div>' +
-            '<div id="date">'+
-            '<div id="when"><p>When</p><h5>' + ticket.date + '</h5></div>'  +
-            '<div id="from"><p>From</p><h5>' + ticket.from + '</h5></div>' +
-            '<div id="to"><p>To</p><h5>' + ticket.to + '</h5></div>'+
-            '</div>' +
-            '<div id="ticketNumber"><img src="img/A2ED7barcode.png" alt="barcode" id="barcode"><p>Ticket number: ' + ticket.id + '</p></div>';
+    ticketElem.innerHTML +=
+        '<div id="what"><p>What</p><h1>' + ticket.eventName + '</h1></div>' +
+        '<div id="where"><p>Where</p><h2>' + ticket.city + '</h2></div>' +
+        '<div id="date">'+
+        '<div id="when"><p>When</p><h3>' + ticket.date + '</h3></div>'  +
+        '<div id="from"><p>From</p><h3>' + ticket.from + '</h3></div>' +
+        '<div id="to"><p>To</p><h3>' + ticket.to + '</h3></div>'+
+        '</div>' +
+        '<div id="ticketNumber"><img src="img/A2ED7barcode.png" alt="barcode" id="barcode"><p>Ticket number: ' + ticket.id + '</p></div>';
         
-            ticketShow.append(ticketElem);
+    ticketShow.append(ticketElem);
 }
 
 

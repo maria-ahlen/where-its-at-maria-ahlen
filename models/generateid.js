@@ -2,7 +2,7 @@
 
 module.exports = {
     createID() {
-        let chars = '1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        let chars = '1234567890ABCDEFGHIJKLMNPQRSTUVWXYZ';
         let randomSerial = '';
     
         for (let i = 0; i < 6; i++) {

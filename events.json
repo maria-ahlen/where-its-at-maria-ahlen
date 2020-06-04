@@ -39,26 +39,18 @@
       "to": "01:00",
       "tickets": "560",
       "price": "649"
+    },
+    {
+      "eventid": "fa17e715-c466-49c4-8a48-9157747a0bed",
+      "eventName": "Iron Maiden",
+      "city": "Göteborg",
+      "date": "20 Jul",
+      "from": "18:00",
+      "to": "00:00",
+      "tickets": "600",
+      "price": "700"
     }
   ],
   "tickets": [
-    {
-      "eventid": "3db8e89b-44ec-41cf-b2b3-f38e056cd628",
-      "eventName": "Coldrain",
-      "city": "Stockholm",
-      "date": "20 Aug",
-      "from": "17:00",
-      "to": "23:00",
-      "id": "GIG5XU"
-    },
-    {
-      "eventid": "873e22b8-ea1a-4426-8efd-759fe779de65",
-      "eventName": "In Flames",
-      "city": "Göteborg",
-      "date": "13 Nov",
-      "from": "18:00",
-      "to": "22:00",
-      "id": "ZXCHY2"
-    }
   ]
 }
