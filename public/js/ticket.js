@@ -3,6 +3,8 @@ function showTicket(ticket) {
     let ticketShow = document.querySelector('.ticketItem');
     let ticketElem = document.createElement('div');
 
+    console.log('TicketElem: ', ticketElem);
+
     ticketElem.innerHTML +=
         `<div id="what">
             <p>What</p>
@@ -43,27 +45,20 @@ function idStorage() {
 
 //Get the ticket from the database
 async function getTicket() {
-    let info = idStorage();
-    console.log('Info from frontend: ',info)
-    const url = 'http://localhost:8000/events/getticket';
+    let id = idStorage();
 
-    let obj = {
-        eventid: info
-    }
+    console.log('Info from frontend: ', JSON.stringify(id));
+    const url = `http://localhost:8000/events/getticket/${id}`;
 
     try {
         const response = await fetch(url, {
-            method: 'POST',
-            body: JSON.stringify(obj),
-            headers : {
-                'Content-Type': 'application/json'
-            }
+            method: 'GET',
         });
 
         const data = await response.json();
         
         console.log('Data from frontend: ', data.id);
-        showTicket(data);
+        showTicket(data.id);
 
     } catch (error) {
         console.log('Error in fetch on getTicket() : ', error);

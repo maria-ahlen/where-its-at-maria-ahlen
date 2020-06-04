@@ -44,8 +44,6 @@ async function showEvent() {
 
         const data = await response.json();
         showTicket(data);
-        storeId(data);
-        console.log('showevent data: ', data);
 
     } catch(error) {
         console.log('Error in fetch on showEvent() :', error);
@@ -70,10 +68,8 @@ async function addTicktet(eventid) {
             }
         });
 
-        console.log(body);
         const data = await response.json();
-        console.log('addticket, data:', data.eventid);
-        //await storeId(data);
+        storeId(data.id);
 
     } catch(error) {
         console.log('Error in fetch on addTicket() :', error);
@@ -99,7 +95,7 @@ function addToBy(ticket) {
         }
 
         addTicktet(itemvalue);
-        //location.href = 'http://localhost:8000/ticket.html';
+        location.href = 'http://localhost:8000/ticket.html';
     });
 }
 

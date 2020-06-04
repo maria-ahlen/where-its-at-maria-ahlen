@@ -22,12 +22,9 @@ router.get('/getall', async (req, res) => {
 
 
 //Get chosen ticket from database
-router.post('/getticket', async (req, res) => {
-    const body = req.body;
-    console.log('From backend, body :', body);
-    
-    let ticket = await getTicket(body);
-    console.log('From backend, ticket :', ticket);
+router.get('/getticket/:id', async (req, res) => {
+    const id = req.params.id;    
+    let ticket = await getTicket(id);
 
     let resObj = {
         eventid: ticket,
@@ -67,18 +64,7 @@ router.post('/addticket', async (req, res) => {
     const generic = createID();
     const addticket = await addTicket(body.eventid, generic);
 
-
-    let resObj = {
-        eventid: addticket.eventid,
-        eventName: addticket.eventName,
-        city: addticket.city,
-        date: addticket.date,
-        from: addticket.from,
-        to: addticket.to,
-        id: addticket.id
-    }
-
-    res.send(JSON.stringify(resObj));
+    res.send(JSON.stringify(addticket));
 });
 
 
