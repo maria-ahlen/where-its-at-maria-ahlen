@@ -8,11 +8,15 @@ function showAllEvents(allEvents) {
         eventElem.classList.add('eventlist');
         
         eventElem.innerHTML +=
-            '<h5 class="eventitem" name="eventitem" value=' + event.eventid + '>' + event.date + '</h5>' +
-            '<h5 class="eventitem" name="eventitem" value=' + event.eventid + '>' + event.eventName + '</h5>' + 
-            '<h5 class="eventitem" name="eventitem" value=' + event.eventid + '>' + event.city + '</h5>' + 
-            '<h5 class="eventitem" name="eventitem" value=' + event.eventid + '>' + event.from + '-' + event.to + '</h5>' + 
-            '<h5 class="eventitem" name="eventitem" value=' + event.eventid + '>' + event.price + 'sek' + '</h5>';
+            '<h3 id="eventlistDate" class="eventitem" name="eventitem" value=' + event.eventid + '>' + event.date + '</h3>' +
+            '<section>' +
+            '<div id="eventlistInfo">' +
+                '<h2 id="eventlistName" class="eventitem" name="eventitem" value=' + event.eventid + '>' + event.eventName + '</h2>' + 
+                '<h5 id="eventlistWhere" class="eventitem" name="eventitem" value=' + event.eventid + '>' + event.city + '</h5>' + 
+                '<h4 id="eventlistTime" class="eventitem" name="eventitem" value=' + event.eventid + '>' + event.from + '-' + event.to + '</h4>' + 
+            '</div>' +
+            '<h4 id="eventlistPrice" class="eventitem" name="eventitem" value=' + event.eventid + '>' + event.price + ' sek' + '</h4>' +
+            '</section>';
 
         eventSection.append(eventElem);
     }

@@ -1,13 +1,36 @@
 const ticketNumberInput = document.querySelector('#ticketNumberInput');
 const verifyButton = document.querySelector('#verifyButton');
 
-function getId() {
 
+
+//return the data from the ticket
+function idStorage() {
+    return sessionStorage.getItem('id');
+ }
+ 
+ 
+ //Get the ticket from the database
+ async function getId() {
+    let id = idStorage();
+    const url = `http://localhost:8000/events/getticket/${id}`;
+ 
+    try {
+        const response = await fetch(url, {
+            method: 'GET',
+        });
+ 
+        const data = await response.json();
+        return await data.id;
+ 
+    } catch (error) {
+        console.log('Error in fetch on getTicket() : ', error);
+    }
 }
 
 
 async function deleteTicket() {
-    const url = 'http://localhost:8000/events/deleteticket';
+    let id = idStorage();
+    const url = `http://localhost:8000/events/deleteticket/${id}`;
 
     const response = await fetch(url, {
         method: 'DELETE'
@@ -22,9 +45,9 @@ verifyButton.addEventListener('click', async () => {
     let number = ticketNumberInput.value;
     let ticketnumber = await getId();
 
-    if (number === ticketnumber) {
+    if (number === ticketnumber.id) {
         document.querySelector('#Valid').classList.toggle('hide');
-        deleteTicket(number);
+        deleteTicket(ticketnumber.id);
     } else {
         document.querySelector('#notValid').classList.toggle('hide');
     }

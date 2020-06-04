@@ -5,10 +5,10 @@ function showTicket(ticket) {
     ticketElem.classList.add('ticketItem');
 
     ticketElem.innerHTML +=
-        '<h3 class="eventitem">' + ticket.eventName + '</h3>' + 
+        '<h1 class="eventitem">' + ticket.eventName + '</h1>' + 
         '<h3 class="eventitem">' + ticket.date + ' kl ' + ticket.from + '-' + ticket.to + '</h3>' +  
-        '<h3 class="eventitem">' + '@ ' + ticket.city + '</h3>' + 
-        '<h3 class="eventitem">' + ticket.price + ' sek</h3>';
+        '<h4 class="eventitem">' + '@ ' + ticket.city + '</h4>' + 
+        '<h2 class="eventitem">' + ticket.price + ' sek</h2>';
 
     ticketShow.append(ticketElem);
     

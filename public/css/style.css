@@ -3,12 +3,282 @@
 }
 
 
+/*--------------------INDEX------------------------------*/
+.event-wrapper {
+    background-color: #231F42;
+    width: 400px;
+    min-height: 800px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+#eventlist-Header {
+    width: 340px;
+    margin-top: -3rem;
+    margin-bottom: -5rem;
+    font-family: Sansita;
+    font-style: italic;
+    font-weight: bold;
+    font-size: 32px;
+    line-height: 37px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #F56B9A;
+}
+
+#eventSection {
+    margin-top: -3rem;
+}
+
+.eventlist {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.eventlist section {
+    display: flex;
+    margin-right: -1rem ;
+}
+
+#eventlistInfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin-right: -3rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    width: 219px;
+}
+
+
+#eventlistDate {
+    display: flex;
+    justify-content: center;
+    border: 1px solid white;
+    border-radius: 10%;
+    width: 66px;
+    height: 66px;
+    font-family: Fira Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    align-items: center;
+    text-align: center;
+    margin: 1rem;
+}
+
+#eventlistName {
+    width: 202px;
+    height: 30px;
+    font-family: Fira Sans;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 26px;
+    display: flex;
+    align-items: center;
+    color: #FFFFFF;
+    text-shadow: 1px 1px 0px #F56B9A;
+    margin-top: -0.7rem;
+}
+
+#eventlistWhere {
+    font-family: Fira Sans;
+    font-style: italic;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 14px;
+    color: rgba(255, 255, 255, 0.8);
+    margin-top: -1rem;
+    margin-bottom: 0;
+}
+
+#eventlistTime {
+    font-family: Fira Sans;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 17px;
+    color: #D0D0D0;
+    margin: 0em;
+    padding: 0em;  
+}
+
+#eventlistPrice {
+    width: 109px;
+    height: 27px;
+    font-family: Fira Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 17px;
+    line-height: 20px;
+    display: flex;
+    align-items: flex-end;
+    text-align: right;
+    color: #37AEAB;
+}
+
+
+
+
+/*--------------------BUY------------------------------*/
+
+.buy-wrapper{
+    background-color: #231F42;
+    width: 400px;
+    min-height: 800px;
+}
+
+#orderItem {
+    min-height: 800px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+#orderItem p {
+    font-family: Fira Sans;
+    font-style: italic;
+    font-weight: normal;
+    font-size: 19px;
+    line-height: 23px;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: -5rem;
+}
+
+
+#showTicket {
+    width: 400px;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.ticketItem {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.ticketItem h1 {
+    font-family: Sansita;
+    font-style: italic;
+    font-weight: bold;
+    font-size: 35px;
+    line-height: 41px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #F56B9A;
+}
+
+.ticketItem h2 {
+    font-family: Fira Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 32px;
+    line-height: 38px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #FFFFFF;
+    text-shadow: 1px 1px 0px #F56B9A;
+    margin-top: 5rem;
+}
+
+.ticketItem h3 {
+    font-family: Fira Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 19px;
+    line-height: 23px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #37AEAB;
+    margin-top: -1rem;
+}
+
+.ticketItem h4 {
+    font-family: Fira Sans;
+    font-style: italic;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 19px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.7);
+    margin-top: -0.5rem;
+}
+
+
+/*--------------------TICKET------------------------------*/
+.ticket-wrapper {
+    width: 400px;
+    min-height: 800px;
+    background-color: #231F42;
+    background: linear-gradient(#F56B9A, #231F42);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+#ticketItem {
+    width: 400px;
+    box-shadow: 0px 0px 32px rgba(0, 0, 0, 0.34);
+    border-radius: 3px;
+    font-family: Fira Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 10px;
+    line-height: 12px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    color: rgba(0, 0, 0, 0.4);
+}
+
+#ticketNumber {
+    width: 311px;
+    background: rgba(0, 0, 0, 0.12);
+    border-radius: 0px 0px 3px 3px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    line-height: 14px;
+}
+
+#barcode {
+    width: 155px;
+    height: 60px;
+}
+
+
+
+
+
 /*--------------------LOGIN & VERIFY------------------------------*/
 
 .staff-wrapper {
     background-color: #F39440;
-    width: 375px;
-    height: 667px;
+    width: 400px;
+    min-height: 800px;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -168,142 +438,8 @@
 
 
 
-/*--------------------TICKET------------------------------*/
-.ticket-wrapper {
-    width: 375px;
-    height: 667px;
-    background-color: #231F42;
-    background: linear-gradient(#F56B9A, #231F42);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
 
 
-#ticketItem {
-    width: 311px;
-    box-shadow: 0px 0px 32px rgba(0, 0, 0, 0.34);
-    border-radius: 3px;
-    font-family: Fira Sans;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 10px;
-    line-height: 12px;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    color: rgba(0, 0, 0, 0.4);
-}
-
-#ticketNumber {
-    width: 311px;
-    background: rgba(0, 0, 0, 0.12);
-    border-radius: 0px 0px 3px 3px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    font-size: 12px;
-    line-height: 14px;
-}
-
-#barcode {
-    width: 155px;
-    height: 60px;
-}
-
-
-
-/*--------------------INDEX------------------------------*/
-.event-wrapper {
-    background-color: #231F42;
-    width: 375px;
-    height: 667px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
-}
-
-#eventlist-Header {
-    font-family: Sansita;
-    font-style: italic;
-    font-weight: normal;
-    font-size: 32px;
-    line-height: 37px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    color: #F56B9A;
-}
-
-
-.eventlist {
-    width: 375px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    color: #FFFFFF;
-}
-
-
-.event {
-    color: #FFFFFF;
-}
-
-#eventSection {
-    width: 375px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-#eventSection  p {
-    width: 200px;
-    font-family: Fira Sans;
-    font-style: italic;
-    font-weight: normal;
-    font-size: 19px;
-    line-height: 23px;
-    text-align: center;
-    color: rgba(255, 255, 255, 0.8);
-}
-
-/*--------------------BUY------------------------------*/
-
-.buy-wrapper{
-    background-color: #231F42;
-    width: 375px;
-    height: 667px;
-}
-
-#showTicket {
-    width: 375px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-#orderItem {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-}
-
-#orderItem p {
-    font-family: Fira Sans;
-    font-style: italic;
-    font-weight: normal;
-    font-size: 19px;
-    line-height: 23px;
-    text-align: center;
-    color: rgba(255, 255, 255, 0.8);
-}
 
 
 
@@ -320,8 +456,6 @@ input {
     text-align: center;
     letter-spacing: 0.3em;
 }
-
-
 
 
 /*--------------------BUTTONS------------------------------*/
@@ -342,21 +476,15 @@ button {
 }
 
 #loginButton {
-    left: 32px;
-    top: 555px;
     background: #231F42;
     margin-bottom: 2rem;
 }
 
 #verifyButton {
-    left: 32px;
-    top: 390px;
     background: #231F42;
 }
 
 #orderButton {
-    left: 33px;
-    top: 573px;
     background: #37AEAB;
     border-radius: 3px;
 }

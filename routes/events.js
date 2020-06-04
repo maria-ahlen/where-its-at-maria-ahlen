@@ -69,22 +69,18 @@ router.post('/addticket', async (req, res) => {
 
 
 
-router.delete('/deleteticket', async (req, res) => {
+router.delete('/deleteticket/:id', async (req, res) => {
+    const id = req.params.id;    
+    let ticket = await removeTicket(id);
+
     let resObj = {
-        success: false
-    }
-
-    const remove = await removeTicket();
-
-    if (remove) {
-        resObj.success = true;
-        resObj.eventid = remove;
-        resObj.eventName = remove;
-        resObj.city = remove;
-        resObj.date = remove;
-        resObj.from = remove;
-        resObj.to = remove;
-        resObj.id = remove;
+        eventid: ticket,
+        eventName: ticket,
+        city: ticket,
+        date: ticket,
+        from: ticket,
+        to: ticket,
+        id: ticket
     }
 
     res.send(JSON.stringify(resObj));
