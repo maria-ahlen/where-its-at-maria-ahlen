@@ -16,12 +16,12 @@ function showTicket(ticket) {
 }
 
 function getEvent() {
-   return localStorage.getItem('event');
+   return sessionStorage.getItem('event');
 }
 
 //Save the data from the ticket
 function storeId(id) {
-    localStorage.setItem('id', id);
+    sessionStorage.setItem('id', id);
 }
 
 //Fetch the ticket

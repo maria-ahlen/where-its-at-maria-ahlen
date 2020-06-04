@@ -42,7 +42,7 @@ async function getAllEvents() {
 
 
 function saveEvent(eventItem) {
-    return localStorage.setItem('event', eventItem);
+    return sessionStorage.setItem('event', eventItem);
 }
 
 //add event to order
