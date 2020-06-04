@@ -1,7 +1,7 @@
 const { Router } = require('express');
 const router = new Router();
 
-const { showEvent, getEvents, addTicket, getTicket } = require('../models/databases');
+const { showEvent, getEvents, addTicket, getTicket, removeTicket } = require('../models/databases');
 const { createID } = require('../models/generateid');
 
 //Get all events from database
@@ -76,6 +76,29 @@ router.post('/addticket', async (req, res) => {
         from: addticket.from,
         to: addticket.to,
         id: addticket.id
+    }
+
+    res.send(JSON.stringify(resObj));
+});
+
+
+
+router.delete('/deleteticket', async (req, res) => {
+    let resObj = {
+        success: false
+    }
+
+    const remove = await removeTicket();
+
+    if (remove) {
+        resObj.success = true;
+        resObj.eventid = remove;
+        resObj.eventName = remove;
+        resObj.city = remove;
+        resObj.date = remove;
+        resObj.from = remove;
+        resObj.to = remove;
+        resObj.id = remove;
     }
 
     res.send(JSON.stringify(resObj));
