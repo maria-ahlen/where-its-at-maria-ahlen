@@ -42,7 +42,8 @@
 
 .eventlist section {
     display: flex;
-    margin-right: -1rem ;
+    margin-right: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 #eventlistInfo {
@@ -50,7 +51,6 @@
     flex-direction: column;
     justify-content: space-around;
     margin-right: -3rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
     width: 219px;
 }
 
