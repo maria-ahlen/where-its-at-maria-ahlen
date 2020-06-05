@@ -2,7 +2,6 @@ const { Router } = require('express');
 const router = new Router();
 
 const { staff } = require('../middleware/auth');
-
 const { removeTicket } = require('../models/databases');
 
 //Get staff from database

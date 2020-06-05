@@ -12,7 +12,7 @@ module.exports = {
             next();
 
         } catch (error) {
-            res.send(JSON.stringify({ success: false, error: 'Token not valid'}));
+            res.status(401).send(JSON.stringify({ success: false, error: error}));
         }
     },
 
@@ -30,7 +30,7 @@ module.exports = {
             next();
 
         } catch (error) {
-            res.send(JSON.stringify({ success: false, error: 'Token not valid'}));
+            res.status(401).send(JSON.stringify({ success: false, error: error}));
         }
     }    
 }

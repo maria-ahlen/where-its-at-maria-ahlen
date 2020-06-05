@@ -18,7 +18,7 @@ router.post('/login', async (req, res) => {
 
     if (user && match) {
         const token = jwt.sign({ uuid: user.uuid }, 'hf7hTbdk', {
-            expiresIn: 600,
+            expiresIn: 600, 
         });
 
         resObj.success = true;

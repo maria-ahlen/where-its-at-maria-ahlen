@@ -10,10 +10,6 @@ function getToken() {
     return sessionStorage.getItem('auth');
 }
 
-function removeToken() {
-    return sessionStorage.removeItem('auth');
-}
-
 //Check the credentials to login
 async function login(username, password) {
     const url = 'http://localhost:8000/auth/login';
@@ -32,7 +28,6 @@ async function login(username, password) {
     });
 
     const data = await response.json();
-    
     return await data;
 }
 
