@@ -1,7 +1,7 @@
 const { Router } = require('express');
 const router = new Router();
 
-const { showEvent, getEvents, addTicket, getTicket, removeTicket } = require('../models/databases');
+const { showEvent, getEvents, addTicket, getTicket } = require('../models/databases');
 const { createID } = require('../models/generateid');
 
 //Get all events from database
@@ -21,7 +21,7 @@ router.get('/getall', async (req, res) => {
 });
 
 
-//Get chosen ticket from database
+//Get chosen ticketid from database
 router.get('/getticket/:id', async (req, res) => {
     const id = req.params.id;    
     let ticket = await getTicket(id);
@@ -65,25 +65,6 @@ router.post('/addticket', async (req, res) => {
     const addticket = await addTicket(body.eventid, generic);
 
     res.send(JSON.stringify(addticket));
-});
-
-
-
-router.delete('/deleteticket/:id', async (req, res) => {
-    const id = req.params.id;    
-    let ticket = await removeTicket(id);
-
-    let resObj = {
-        eventid: ticket,
-        eventName: ticket,
-        city: ticket,
-        date: ticket,
-        from: ticket,
-        to: ticket,
-        id: ticket
-    }
-
-    res.send(JSON.stringify(resObj));
 });
 
 module.exports = router;

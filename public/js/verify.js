@@ -1,11 +1,11 @@
-//return the data from the ticket
-function idStorage() {
-    return sessionStorage.getItem('id');
-}
-
 function getToken() {
     return sessionStorage.getItem('auth');
 }
+
+function removeToken() {
+    sessionStorage.removeItem('auth');
+}
+
 
 //Send back user to loginpage if not logged in 
 async function loggedin() {
@@ -21,15 +21,14 @@ async function loggedin() {
     const data = await response.json();
     
     if (!data.loggedIn) {
+        removeToken();
         location.href = 'http://localhost:8000/login.html';
-        sessionStorage.removeItem('auth');
     }
 }
  
  
-//Get the ticket from the database
-async function getId() {
-    let id = idStorage();
+//Get the chosen ticket from the database
+async function getId(id) {
     const url = `http://localhost:8000/events/getticket/${id}`;
  
     try {
@@ -51,9 +50,9 @@ async function getId() {
 }
 
 
-async function deleteTicket() {
-    let id = idStorage();
-    const url = `http://localhost:8000/events/deleteticket/${id}`;
+//delete the chosen ticket from database if existing
+async function verifyTicket(id) {
+    const url = `http://localhost:8000/staff/verifyticket/${id}`;
 
     const response = await fetch(url, {
         method: 'DELETE'
@@ -61,10 +60,17 @@ async function deleteTicket() {
 
     const data = await response.json();
     return await data;
-    
 }
 
 
+//remove the classlist hide
+function removeClass() {
+    document.querySelector('#Valid').classList.add('hide');
+    document.querySelector('#notValid').classList.add('hide');
+}
+
+
+//Check if ticket is valid when pressing the button
 function verify() {
     const ticketNumberInput = document.querySelector('#ticketNumberInput');
     const verifyButton = document.querySelectorAll('#verifyButton');
@@ -72,21 +78,23 @@ function verify() {
     for(let i = 0; i < verifyButton.length; i++) {
         verifyButton[i].addEventListener('click', async () => {
             let number = ticketNumberInput.value;
-            let ticketnumber = await getId();
-        
+            let ticketnumber = await getId(number);
+
             if (number === ticketnumber.id) {
-                document.querySelector('#Valid').classList.toggle('hide');
-                deleteTicket(ticketnumber.id);
-                sessionStorage.removeItem('id');
-                console.log('VALID TICKET');
+                setTimeout(() => {
+                    document.querySelector('#notValid').classList.add('hide');
+                    document.querySelector('#Valid').classList.toggle('hide');
+                }, 1000);
+                verifyTicket(ticketnumber.id);
             } else {
-                document.querySelector('#notValid').classList.toggle('hide');
-                console.log('NOT VALID TICKET');
-            }   
+                setTimeout(() => {
+                    document.querySelector('#Valid').classList.add('hide');
+                    document.querySelector('#notValid').classList.toggle('hide');
+                }, 1000);
+            } 
         });
     }
 }
-
 
 verify();
 loggedin();

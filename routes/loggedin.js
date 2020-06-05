@@ -24,7 +24,9 @@ router.post('/login', async (req, res) => {
         resObj.success = true;
         resObj.token = token;
         resObj.role = user.role;
-    } 
+    } else {
+        resObj.success = false;
+    }
 
     res.send(JSON.stringify(resObj));
 });

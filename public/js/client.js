@@ -40,7 +40,7 @@ async function getAllEvents() {
     }
 }
 
-
+//stor the event in session in browser to show
 function saveEvent(eventItem) {
     return sessionStorage.setItem('event', eventItem);
 }

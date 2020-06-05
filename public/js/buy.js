@@ -1,4 +1,4 @@
-//Show ticket and the ticketnumber
+//Show ticket and the ticketnumber in browser
 function showTicket(ticket) {
     let ticketShow = document.querySelector('#showTicket');
     let ticketElem = document.createElement('div');
@@ -15,11 +15,12 @@ function showTicket(ticket) {
     addToBy(ticket);
 }
 
+//Get the data from sesstionstorage to show i browser
 function getEvent() {
    return sessionStorage.getItem('event');
 }
 
-//Save the data from the ticket
+//Save the data from the ticket to show in browser in ticket.html
 function storeId(id) {
     sessionStorage.setItem('id', id);
 }

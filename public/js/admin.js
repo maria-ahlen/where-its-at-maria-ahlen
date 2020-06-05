@@ -12,6 +12,10 @@ function getToken() {
     return sessionStorage.getItem('auth');
 }
 
+function removeToken() {
+    sessionStorage.removeItem('auth');
+}
+
 //Send back user to loginpage if not logged in 
 async function loggedin() {
     const token = getToken();
@@ -26,8 +30,8 @@ async function loggedin() {
     const data = await response.json();
     
     if (!data.loggedIn) {
+        removeToken();
         location.href = 'http://localhost:8000/login.html';
-        sessionStorage.removeItem('auth');
     }
 }
 
@@ -53,7 +57,7 @@ async function createEvent(event) {
     }
 }
 
-//Show all the events
+//Show all the events in the browser
 function showAllEvents(allEvents) {
     let eventList = document.querySelector('#eventList');
     eventList.innerHTML = '';
