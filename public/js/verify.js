@@ -59,7 +59,7 @@ async function verifyTicket(id) {
     });
 
     const data = await response.json();
-    return await data;
+    return await data.id;
 }
 
 
@@ -75,26 +75,22 @@ function verify() {
     const ticketNumberInput = document.querySelector('#ticketNumberInput');
     const verifyButton = document.querySelectorAll('#verifyButton');
     
+    
     for(let i = 0; i < verifyButton.length; i++) {
         verifyButton[i].addEventListener('click', async () => {
             let number = ticketNumberInput.value;
             let ticketnumber = await getId(number);
 
             if (number === ticketnumber.id) {
-                setTimeout(() => {
-                    document.querySelector('#notValid').classList.add('hide');
-                    document.querySelector('#Valid').classList.toggle('hide');
-                }, 1000);
+                document.querySelector('#Valid').classList.toggle('hide');
                 verifyTicket(ticketnumber.id);
             } else {
-                setTimeout(() => {
-                    document.querySelector('#Valid').classList.add('hide');
-                    document.querySelector('#notValid').classList.toggle('hide');
-                }, 1000);
+                document.querySelector('#notValid').classList.toggle('hide');
             } 
         });
     }
 }
 
+removeClass();
 verify();
 loggedin();
