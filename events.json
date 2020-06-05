@@ -49,6 +49,16 @@
       "to": "00:00",
       "tickets": "600",
       "price": "700"
+    },
+    {
+      "eventid": "b66d3f63-c6b0-4967-9ee8-83b15e87dca7",
+      "eventName": "Judas Priest",
+      "city": "Stockholm",
+      "date": "16 Mar",
+      "from": "19:00",
+      "to": "01:00",
+      "tickets": "350",
+      "price": "600"
     }
   ],
   "tickets": [
@@ -69,15 +79,6 @@
       "from": "18:00",
       "to": "22:00",
       "id": "ZDIX7L"
-    },
-    {
-      "eventid": "873e22b8-ea1a-4426-8efd-759fe779de65",
-      "eventName": "In Flames",
-      "city": "Göteborg",
-      "date": "13 Nov",
-      "from": "18:00",
-      "to": "22:00",
-      "id": "I5HM3P"
     }
   ]
 }
