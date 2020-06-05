@@ -53,49 +53,31 @@
   ],
   "tickets": [
     {
-      "eventid": "3db8e89b-44ec-41cf-b2b3-f38e056cd628",
-      "eventName": "Coldrain",
-      "city": "Stockholm",
-      "date": "20 Aug",
-      "from": "17:00",
-      "to": "23:00",
-      "id": "SNM4E1"
-    },
-    {
-      "eventid": "5a66e44c-0001-4c32-8927-6e072e3d8bf3",
-      "eventName": "Disturbed",
-      "city": "Malmö",
-      "date": "16 Apr",
+      "eventid": "873e22b8-ea1a-4426-8efd-759fe779de65",
+      "eventName": "In Flames",
+      "city": "Göteborg",
+      "date": "13 Nov",
       "from": "18:00",
-      "to": "23:59",
-      "id": "9HE8RT"
+      "to": "22:00",
+      "id": "MLXJY3"
     },
     {
-      "eventid": "eb89c8ca-1909-4049-8009-336886eb5e28",
-      "eventName": "Arch Enemy",
-      "city": "Oslo",
-      "date": "3 Jun",
-      "from": "19:00",
-      "to": "01:00",
-      "id": "4ZASKY"
+      "eventid": "873e22b8-ea1a-4426-8efd-759fe779de65",
+      "eventName": "In Flames",
+      "city": "Göteborg",
+      "date": "13 Nov",
+      "from": "18:00",
+      "to": "22:00",
+      "id": "ZDIX7L"
     },
     {
-      "eventid": "eb89c8ca-1909-4049-8009-336886eb5e28",
-      "eventName": "Arch Enemy",
-      "city": "Oslo",
-      "date": "3 Jun",
-      "from": "19:00",
-      "to": "01:00",
-      "id": "8KX17I"
-    },
-    {
-      "eventid": "eb89c8ca-1909-4049-8009-336886eb5e28",
-      "eventName": "Arch Enemy",
-      "city": "Oslo",
-      "date": "3 Jun",
-      "from": "19:00",
-      "to": "01:00",
-      "id": "9MXRDU"
+      "eventid": "873e22b8-ea1a-4426-8efd-759fe779de65",
+      "eventName": "In Flames",
+      "city": "Göteborg",
+      "date": "13 Nov",
+      "from": "18:00",
+      "to": "22:00",
+      "id": "I5HM3P"
     }
   ]
 }

@@ -39,6 +39,7 @@ async function getId(id) {
         const data = await response.json();
 
         if(!data.id) {
+            document.querySelector('#Valid').classList.add('hide');
             document.querySelector('#notValid').classList.toggle('hide');
         } else {
             return await data.id;
@@ -59,14 +60,10 @@ async function verifyTicket(id) {
     });
 
     const data = await response.json();
-    return await data.id;
-}
-
-
-//remove the classlist hide
-function removeClass() {
-    document.querySelector('#Valid').classList.add('hide');
-    document.querySelector('#notValid').classList.add('hide');
+    if(data.id) {
+        document.querySelector('#notValid').classList.add('hide');
+        return await data.id;
+    }
 }
 
 
@@ -74,7 +71,6 @@ function removeClass() {
 function verify() {
     const ticketNumberInput = document.querySelector('#ticketNumberInput');
     const verifyButton = document.querySelectorAll('#verifyButton');
-    
     
     for(let i = 0; i < verifyButton.length; i++) {
         verifyButton[i].addEventListener('click', async () => {
@@ -91,6 +87,5 @@ function verify() {
     }
 }
 
-removeClass();
 verify();
 loggedin();
