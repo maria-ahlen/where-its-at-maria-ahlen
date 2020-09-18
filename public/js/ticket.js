@@ -8,9 +8,9 @@ function showTicket(ticket) {
         '<div id="what"><p>What</p><h1>' + ticket.eventName + '</h1></div>' +
         '<div id="where"><p>Where</p><h2>' + ticket.city + '</h2></div>' +
         '<div id="date">'+
-        '<div id="when"><p>When</p><h3>' + ticket.date + '</h3></div>'  +
-        '<div id="from"><p>From</p><h3>' + ticket.from + '</h3></div>' +
-        '<div id="to"><p>To</p><h3>' + ticket.to + '</h3></div>'+
+            '<div id="when"><p>When</p><h3>' + ticket.date + '</h3></div>'  +
+            '<div id="from"><p>From</p><h3>' + ticket.from + '</h3></div>' +
+            '<div id="to"><p>To</p><h3>' + ticket.to + '</h3></div>'+
         '</div>' +
         '<div id="ticketNumber"><img src="img/A2ED7barcode.png" alt="barcode" id="barcode"><p>Ticket number: ' + ticket.id + '</p></div>';
         

@@ -79,6 +79,15 @@
       "from": "18:00",
       "to": "22:00",
       "id": "ZDIX7L"
+    },
+    {
+      "eventid": "3db8e89b-44ec-41cf-b2b3-f38e056cd628",
+      "eventName": "Coldrain",
+      "city": "Stockholm",
+      "date": "20 Aug",
+      "from": "17:00",
+      "to": "23:00",
+      "id": "WV0W2G"
     }
   ]
 }
